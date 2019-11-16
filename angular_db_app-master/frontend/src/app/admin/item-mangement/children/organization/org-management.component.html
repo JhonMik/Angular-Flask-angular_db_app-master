@@ -1,0 +1,63 @@
+<div fxLayout="row" fxLayoutAlign="space-around start" fxFill class="user-outline">
+  <div fxFlex="90" fxLayoutAlign="start start" fxFlexFill fxLayoutGap="20px">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxFlexFill>
+      <div fxFlex="100" fxLayoutAlign="center center">
+        <h4> Organizations</h4>
+      </div>
+      <div fxFlex="100" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" fxFlexFill>
+          <div fxLayoutAlign="start center" fxLayoutGap="10px">
+            <label>Name:</label>
+            <mat-form-field class="example-full-width">
+              <input matInput value="" [(ngModel)]="addName" (keyup)="applyFilter($event.target.value)">
+            </mat-form-field>
+          </div>
+          <div fxLayoutAlign="start center" fxLayoutGap="10px">
+            <button mat-mini-fab color="primary" (click)="renameOrganization()"
+              [ngStyle]="{'visibility': renameStatus?'visible':'hidden'}"><i class="material-icons">
+                save
+              </i> </button>
+            <button mat-mini-fab color="primary" (click)="addOrganization()"><i class="material-icons">
+                add
+              </i> </button>
+            <button mat-mini-fab color="warn" (click)="deleteOrganizations()"><i class=" material-icons">
+                delete_sweep
+              </i> </button>
+          </div>
+        </div>
+
+      </div>
+      <div fxFlex="100">
+        <div fxLayout="row" fxLayoutGap="20px">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #matorglist>
+
+            <!-- Checkbox Column -->
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRow(row)">
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

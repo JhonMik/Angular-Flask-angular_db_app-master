@@ -1,0 +1,34 @@
+<div class="admin-container" [class.admin-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="admin-toolbar">
+    <div fxLayout="row" fxLayoutAlign="space-between center"
+      style="display: flex; justify-content: space-between;width:100%" fxFill>
+      <div class="logo">
+        <button mat-icon-button (click)="snav.toggle()" [ngStyle]="{'visibility': snav.opened? 'hidden':'visible'}"
+          style="position: absolute; left:10px; visibility: hidden">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <img src="assets/images/logo.png" />
+        Admin Panel
+      </div>
+      <div fxLayoutAlign="start center">
+        <button mat-button [routerLink]="'/logout'">Logout</button>
+      </div>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="admin-sidenav-container" color="primary">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="90" [opened]="mobileQuery.matches ? 'false' : 'true'" class="admin-sidenav">
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let side of sideBar" [routerLink]="side.url">{{side.label}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="admin-sidenav-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <div fxLayout="row" fxLayoutAlign="center center" class="admin-footer">
+    <span>This is footer.@copyright 2019</span>
+  </div>
+
+</div>

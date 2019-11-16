@@ -1,0 +1,55 @@
+<div fxFill style="padding-bottom: 40px;">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="60">
+      <div fxLayout="column">
+        <h1>The Committee</h1>
+        <span>The Central Committee of the Chinese Communist Party (CCP) is the locus of political power in China. It
+          includes the
+          rulers of today and the leaders of tomorrow. This product—which will be updated and have new features added
+          over
+          time—currently contains bilingual biographical data for all 375 members and allows you to search or filter
+          based
+          on
+          demographic criteria. The Committee also comes with analyses of Chinese elite and bureaucratic politics, which
+          can
+          be found here. For notes on methodology and contact details, see the Overview.
+        </span>
+        <div fxLayoutAlign="center center">
+          <button mat-button color="primary" href="#"> Read more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="80">
+      <div fxFlex class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>
+              <app-ss-search-tool [searchResCount]="searchResCount" (searchChange)="onFilterChange($event)"
+                [menus]="menus"></app-ss-search-tool>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <div fxLayoutGap="20px" fxLayout="row">
+                <div fxFlex="20" *ngFor="let man of row.id">
+                  <app-avatar-show [person]="man" (click)="showDetails(man)"></app-avatar-show>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+        <div fxLayout="row" fxLayoutAlign="center center" class="no-search-result" *ngIf="searchResCount == 0">
+          <div>
+
+            No Search Results!
+          </div>
+        </div>
+        <mat-paginator [pageSizeOptions]="[1, 3, 5, 10, 20]"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

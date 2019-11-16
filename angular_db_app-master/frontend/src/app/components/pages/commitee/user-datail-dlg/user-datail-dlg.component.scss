@@ -1,0 +1,77 @@
+.dlg-title-bar {
+  background: #1f8faa;
+  font-size: 16px;
+  color: white;
+
+  .ng-star-inserted {
+    color: white;
+  }
+
+  .mat-select-arrow {
+    color: white;
+  }
+
+
+}
+
+.mat-select-value {
+  color: white;
+}
+
+.mat-select-arrow {
+  color: white;
+
+}
+
+:host {
+  font-size: 20px;
+  font-family: CentraNo2, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.userdetail-card {
+  width: 500px;
+  padding: 25px;
+
+  .mat-card-header {
+    margin-bottom: 20px;
+  }
+}
+
+.userdetail-header-image {
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+}
+
+.item-title {
+  font-size: 10px;
+  line-height: 1em;
+  letter-spacing: -0.1px;
+  color: #a4a4a4;
+}
+
+.detail-row-content {
+  padding: 10px 0;
+  font-weight: 100;
+  font-size: 16px;
+  font-family: CentraNo2, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+::ng-deep .userdetail-card {
+  .mat-select-value {
+    color: white;
+  }
+}
+
+// ::ng-deep .mat-select-arrow {
+//   color: white;
+// }
+
+.lang-bar.mat-select {
+  .mat-select-trigger {
+    .mat-select-value {
+      color: white !important;
+    }
+  }
+
+}

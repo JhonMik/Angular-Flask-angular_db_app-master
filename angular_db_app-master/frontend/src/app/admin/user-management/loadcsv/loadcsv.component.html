@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutAlign="center start" fxFill class="user-outline">
+  <div fxLayoutAlign="start center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" (click)="uploadFileInput.click()" style="float:left"
+      matTooltip="Choose File To Upload">
+      <i class="material-icons">
+        import_export
+      </i> Choose File
+    </button>
+    <input #uploadFileInput id="singleFile" type="file" style="display:none"
+      (change)="openFileEvent($event.target.files)" />
+    <div class="filename" color="" *ngIf="uploadSelectFile">{{uploadSelectFile.name}}</div>
+    <button mat-raised-button color="primary" (click)="uploadFileEvent()" style="float:right"
+      matTooltip="Upload File For Topic Modeling">
+      <i class="material-icons">
+        import_export
+      </i> Import From CSV</button>
+  </div>
+
+</div>

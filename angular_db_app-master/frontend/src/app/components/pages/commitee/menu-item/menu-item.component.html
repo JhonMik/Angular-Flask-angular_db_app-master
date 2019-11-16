@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>{{menu.title}}</mat-label>
+  <mat-select #matSelect="matSelect" [(value)]="menu.value" (selectionChange)="onFilterChange()">
+    <mat-option *ngFor="let item of menu.items" [value]="item.value">
+      {{item.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,45 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+
+.mat-elevation-z8 {
+  padding: 0px 20px 30px 20px;
+  background: white;
+  min-width: 1200px;
+
+  table {
+    padding-bottom: 50px;
+  }
+}
+
+.mat-header-row .ng-star-inserted {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-footer-row,
+mat-header-row,
+mat-row,
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+  border-width: 0px;
+}
+
+.no-search-result {
+
+  height: 300px;
+  font-size: 30px;
+}

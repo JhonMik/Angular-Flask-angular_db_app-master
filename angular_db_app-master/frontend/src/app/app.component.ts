@@ -1,0 +1,19 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'socialblog';
+
+  constructor(private router: Router) {
+    this.isAdminPage();
+  }
+
+  isAdminPage() {
+    console.log(this.router.url);
+  }
+}

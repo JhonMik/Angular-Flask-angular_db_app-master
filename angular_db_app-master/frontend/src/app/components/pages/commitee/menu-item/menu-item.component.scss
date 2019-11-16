@@ -1,0 +1,22 @@
+.hidden-menu {
+  display: none;
+}
+
+.show-menu {
+  display: block;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0px !important;
+  padding-top: 15px;
+}
+
+.mat-form-field {
+  width: 120px;
+  min-width: 100px;
+  font-family: sans-serif;
+}

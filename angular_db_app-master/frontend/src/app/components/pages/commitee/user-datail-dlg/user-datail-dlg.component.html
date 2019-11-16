@@ -1,0 +1,79 @@
+<div fxFlexFill fxLayoutAlign="center center">
+  <div fxLayout="row" class="dlg-title-bar" fxLayoutAlign="center center" fxFlexFill>
+    <div fxFlex="90">
+      <div fxLayout="row" class="dlg-title-bar" fxLayoutAlign="center center" fxFlexFill>
+        <div fxFlex="20">
+          Language:
+        </div>
+        <div fxFlex="20">
+          <mat-select [value]="'en'" class="lang-bar">
+            <mat-option [value]="'en'"> English</mat-option>
+          </mat-select>
+        </div>
+        <div fxFlex>
+        </div>
+        <div fxFlex="10" fxLayoutAlign="end center">
+          <button mat-icon-button aria-label="close the dialog" (click)="onNoClick()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+    <mat-card class="userdetail-card">
+      <mat-card-header>
+        <div mat-card-avatar class="userdetail-header-image"
+          [ngStyle]="{'background-image':'url(' + baseURL + person.imageurl + ')'}">
+        </div>
+        <mat-card-title>{{person.name}}</mat-card-title>
+        <mat-card-subtitle>Description</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row" class="detail-row-content" fxFlexFill fxLayoutAlign="start center">
+          <div fxFlex="30">
+            <div class="item-title">Age</div>
+            <div>{{person.age}}</div>
+          </div>
+          <div fxFlex="30">
+            <div class="item-title">Gender</div>
+            <div>{{person.gender}}</div>
+          </div>
+          <div fxFlex="30">
+            <div class="item-title">Ethnicity</div>
+            <div>{{person.ethnicity}}</div>
+          </div>
+        </div>
+        <div fxLayout="row" class="detail-row-content" fxFlexFill fxLayoutAlign="start center">
+          <div fxFlex="50">
+            <div class="item-title">Position</div>
+            <div>{{person.position}}</div>
+          </div>
+          <div fxFlex="50">
+            <div class="item-title">Branch of Government</div>
+            <div>{{person.branchOfGov}}</div>
+          </div>
+        </div>
+        <div fxLayout="row" class="detail-row-content" fxFlexFill fxLayoutAlign="start center">
+          <div fxFlex="50">
+            <div class="item-title">Ministry</div>
+            <div>{{person.ministry}}</div>
+          </div>
+          <div fxFlex="50">
+            <div class="item-title">Ancestry</div>
+            <div>{{person.ancestry}}</div>
+          </div>
+        </div>
+        <div fxLayout="row" class="detail-row-content" fxFlexFill fxLayoutAlign="start center">
+          <div fxFlexFill>
+            <div class="item-title">Organization</div>
+            <div>{{person.organizations}}</div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

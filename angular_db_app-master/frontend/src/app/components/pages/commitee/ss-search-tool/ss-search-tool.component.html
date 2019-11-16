@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div fxFill>
+      <div fxLayout="row">
+        <span fxFlex="20" fxLayoutAlign="start center">Found: {{searchResCount}}</span>
+        <span fxFlex></span>
+        <div fxLayoutAlign="end center">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Search by Name" [value]="byNameSearch.value"
+              (keyup)="applyFilter($event.target.value)">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="mat-branch-search">
+    <div fxFill>
+      <div fxLayout="row" fxFlexFill>
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
+          <div *ngFor="let menuItem of menus">
+            <app-menu-item [(menu)]="menuItem" (filterChange)="onFilterChange()"></app-menu-item>
+          </div>
+          <div fxFlexAlign="end center">
+            <button mat-button (click)="clearFilter()">Clear Filter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

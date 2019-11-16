@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="center start" fxFill class="user-outline">
+  <div fxFlex="100" fxLayoutAlign="center start" fxFill>
+    <div fxLayout="row wrap" fxLayoutAlign="center start">
+      <div fxFlex="100" fxLayoutAlign="center center">
+        <label>Old Password:</label>
+        <mat-form-field>
+          <input matInput type="password" name="oldpassword" [(ngModel)]="oldpwd" required #oldpassword>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="center center" fxFlex="100" fxLayoutGap="10px">
+        <label>New Password:</label>
+        <mat-form-field>
+          <input matInput type="password" name="newpassword" [(ngModel)]="newpwd" required #newpassword>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="center center" fxFlex="100" fxLayoutGap="10px">
+        <label>Repeat Password:</label>
+        <mat-form-field>
+          <input matInput type="password" name="reppassword" [(ngModel)]="reppwd" required #reppassword>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="end center" fxFlex="50">
+        <button mat-raised-button color="primary" (click)="updatePassword()"
+          [disabled]="!oldpwd || !newpwd || !reppwd || newpwd != reppwd">
+          Update</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="logo">
+      <img src="assets/images/logo.png" />
+    </div>
+    <div>Test Logo</div>
+    <div fxFlex></div>
+    <div fxShow="true" fxHide.lt-md>
+      <a href="/commitee" mat-button>COMMITEE</a>
+      <a href="#" mat-button>DIGITAL PROJECTS</a>
+      <a href="#" mat-button>ANALYSIS</a>
+      <a href="#" mat-button>MULTIMEDIA </a>
+      <a href="#" mat-button>ABOUT</a>
+      <a href="/login" mat-button *ngIf="!authService.isLoginUser() else logoutbutton">ADMIN</a>
+      <ng-template #logoutbutton>
+        <a href="/logout" mat-button>LOG OUT</a>
+      </ng-template>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

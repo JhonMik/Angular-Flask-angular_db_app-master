@@ -1,0 +1,28 @@
+.logo {
+  padding-left: 40px;
+
+  img {
+    height: 70px;
+  }
+}
+
+.admin-toolbar {
+  height: 90px;
+  border-bottom: #b1b1b1 1px solid;
+}
+
+.admin-sidenav {
+  background: #f5f5f5;
+  min-width: 200px;
+  height: 100vh;
+}
+
+.admin-footer {
+  height: 3rem;
+  border-top: #b1b1b1 1px solid;
+  background: #f5f5f5;
+}
+
+.admin-sidenav-content {
+  height: calc(100vh - 3rem - 90px);
+}

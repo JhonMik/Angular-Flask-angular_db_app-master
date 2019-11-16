@@ -1,0 +1,23 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar-row {
+  height: 90px;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.logo {
+  padding-left: 70px;
+
+  img {
+    height: 70px;
+  }
+}
+
+:host {
+  font-weight: bold;
+}

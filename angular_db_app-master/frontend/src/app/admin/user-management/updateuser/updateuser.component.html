@@ -1,0 +1,110 @@
+<div fxLayout="row" fxLayoutAlign="center start" fxFill class="user-outline">
+  <div fxFlex="70" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFill *ngIf="inputtype !== 'new'" fxLayoutGap="20px">
+
+      <mat-form-field>
+        <mat-select id="organizations" name="organizations" (selectionChange)="onFilterOrgChanged()" multiple
+          placeholder="Organizations" [(ngModel)]="filterOranization">
+          <mat-option *ngFor="let org of orgsList; let id = index" [value]="org.id">
+            {{org.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Select User</mat-label>
+        <mat-select [(ngModel)]="userID" (ngModelChange)="onUserSelected()">
+          <mat-option *ngFor="let person of persons" [value]="person.userid">
+            {{person.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" fxFill>
+      <button mat-raised-button (click)="imageInput.click()">
+        <span>Select image</span>
+        <input type="file" placeholder="Image URL" #imageInput accept="image/*" style="display:none;"
+          (change)="readImageUrl($event)">
+      </button>
+      <img [src]="avatarImgURL" class="prev_avatar">
+    </div>
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
+      <div fxLayout="row" fxLayoutAlign="start start" fxFill fxLayoutGap="30px">
+        <div fxFlex="33" fxFlexFill>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Name" id="name" formControlName="name" name="name" required>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxFlexFill>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Age" id="age" formControlName="age" name="age" required>
+          </mat-form-field>
+        </div>
+        <div fxFlex="33" fxFlexFill>
+          <mat-form-field>
+            <mat-select id="gender" formControlName="gender" name="gender" placeholder="Gender" required>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="Male">Male</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="start center" fxFill>
+        <ng-select [items]="orgsList" bindLabel="name" bindValue="id" [multiple]="true"
+          placeholder="Select Organizations" formControlName="organizations" [hideSelected]='true'></ng-select>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxFill fxLayoutGap="30px">
+        <div fxFlex="50">
+          <div fxLayout="row" fxLayoutAlign="start start" fxFill>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Ethnicity" id="ethnicity" formControlName="ethnicity"
+                name="ethnicity" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start start" fxFill>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Position" id="position" formControlName="position"
+                name="position" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start start" fxFill>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Branch Of Government" id="branchOfGov"
+                formControlName="branchOfGov" name="branchOfGov" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="50">
+          <div fxLayout="row" fxLayoutAlign="start start" fxFill>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Ministry" id="ministry" formControlName="ministry"
+                name="ministry" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start start" fxFill>
+            <mat-form-field>
+              <input matInput type="text" placeholder="Ancestry" id="ancestry" formControlName="ancestry"
+                name="ancestry" required>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end start" fxLayoutGap="30px">
+        <div *ngIf="inputtype === 'new' else updateSect">
+          <button mat-raised-button color="primary" type="submit" [disabled]="personForm.invalid">
+            Add New
+          </button>
+        </div>
+        <ng-template #updateSect>
+          <button mat-raised-button color="warn" type="button" (click)="deleteUser()">
+            Delete
+          </button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="personForm.invalid">
+            Update
+          </button>
+        </ng-template>
+      </div>
+    </form>
+  </div>
+</div>
